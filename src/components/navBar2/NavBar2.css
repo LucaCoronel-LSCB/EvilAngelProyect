@@ -1,0 +1,94 @@
+/* Estilos base del NavBar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #000000;
+}
+
+.navbar-logo h1 {
+  font-size: 1.8rem;
+  color: #3DE0FC;
+  font-family: 'Cinzel', serif;
+  margin: 0;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 15px;
+}
+
+.glow-button {
+  --glow-color: rgb(217, 176, 255);
+  --glow-spread-color: rgba(191, 123, 255, 0.781);
+  --btn-color: rgb(100, 61, 136);
+  border: 2px solid var(--glow-color);
+  padding: 10px 12px;
+  color: var(--glow-color);
+  font-size: 14px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 0 0.5em var(--glow-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.glow-button:hover {
+  background-color: var(--glow-color);
+  color: var(--btn-color);
+  box-shadow: 0 0 1.5em var(--glow-spread-color);
+}
+
+/* Menú hamburguesa */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #9941fc;
+  border-radius: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+/* Animación del menú hamburguesa */
+.menu-toggle .bar.open:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle .bar.open:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle .bar.open:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .navbar-links.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+}
