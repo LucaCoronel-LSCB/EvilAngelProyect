@@ -3,15 +3,15 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="container">
+      <div className="contain">
         <div className="branding">
           <h2 className="brand-name">Evil Angel</h2>
           <p className="slogan">La nueva generación</p>
         </div>
-        <ul className="container-ul">
+        <ul className="contain-ul">
           <li>
             {" "}
-            <a href="https://wa.me/3516655470" className="contact-item">
+            <a href="https://wa.me/3516655470" className="contact-it">
               <Phone className="icon" />
               <span className="footer-text">3516655470</span>
             </a>
@@ -20,18 +20,18 @@ const Footer = () => {
             {" "}
             <a
               href="https://github.com/LucaCoronel-LSCB"
-              className="contact-item"
+              className="contact-it"
             >
               <Github className="icon" />
               <span className="footer-text">LucaCoronel-LSCB</span>
             </a>
           </li>
         </ul>
-        <ul className="container-ul">
+        <ul className="contain-ul">
           <li>
             <a
               href="https://www.instagram.com/evil_angel.ok"
-              className="contact-item"
+              className="contact-it"
             >
               <Instagram className="icon" />
               <span className="footer-text">evil_angel.ok</span>
@@ -41,7 +41,7 @@ const Footer = () => {
             {" "}
             <a
               href="https://www.linkedin.com/in/luca-coronel-398968353/"
-              className="contact-item"
+              className="contact-it"
             >
               <Linkedin className="icon" />
               <span className="footer-text">linkeding</span>

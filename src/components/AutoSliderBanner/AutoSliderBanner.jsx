@@ -50,14 +50,16 @@ const styles = {
   banner: {
     position: "relative",
     width: "100vw",
-    height: "100vh",
+    height: "50vh",
     overflow: "hidden",
   },
   imageContainer: {
     position: "absolute",
+    transform: "scale(1.2)",
     width: "100%",
     height: "100%",
-    transition: "opacity 1s ease-in-out",
+    transition: "transform 0.5s ease-in-out",
+    overflow: "hidden", // Evita que la imagen se desborde
   },
   image: {
     width: "100%",

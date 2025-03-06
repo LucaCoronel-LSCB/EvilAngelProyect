@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ChevronRight, CloudLightning, Info, Zap } from "lucide-react"
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { ChevronRight, CloudLightning, Info, Zap } from "lucide-react";
 
 const blogPosts = [
   {
@@ -10,40 +11,48 @@ const blogPosts = [
     excerpt:
       "Descubre los consejos más importantes para comenzar tu experiencia de vapeo de manera segura y placentera.",
     icon: <Info className="post-icon" />,
-    content:
-      "1. Comienza con líquidos de baja nicotina.\n2. Mantén tu dispositivo limpio.\n3. Hidratate frecuentemente.\n4. Experimenta con diferentes sabores.\n5. No mezcles con cigarrillos tradicionales.",
+    content: `1. Carga tu vaper con carga lenta, ya sea con un televisor o una PC.
+2. Mantén tu dispositivo limpio.
+3. Hidrátate frecuentemente.
+4. Experimenta con diferentes sabores.
+5. No mezcles con cigarrillos tradicionales.`,
   },
   {
     id: 2,
     title: "Trucos de vapeo para impresionar",
-    excerpt: "Aprende algunos trucos básicos y avanzados para hacer anillos, tornados y más con tu vaper.",
+    excerpt:
+      "Aprende algunos trucos básicos y avanzados para hacer anillos, tornados y más con tu vaper.",
     icon: <CloudLightning className="post-icon" />,
-    content:
-      "Anillos de humo: Forma una 'O' con tus labios y da golpecitos suaves en tu mejilla.\nTornado: Exhala una nube densa sobre una superficie plana y pasa tu mano rápidamente por encima.\nMedusa: Crea múltiples anillos pequeños en rápida sucesión.",
+    content: `ANILLOS DE HUMO: Forma una 'O' con tus labios y da golpecitos suaves en tu mejilla.
+TORNADO: Exhala una nube densa sobre una superficie plana y pasa tu mano rápidamente por encima.
+MEDUSA: Crea múltiples anillos pequeños en rápida sucesión.`,
   },
   {
     id: 3,
     title: "Vapeo vs. Cigarrillos: ¿Cuál es menos dañino?",
-    excerpt: "Un análisis comparativo entre el vapeo y los cigarrillos tradicionales basado en estudios recientes.",
+    excerpt:
+      "Un análisis comparativo entre el vapeo y los cigarrillos tradicionales basado en estudios recientes.",
     icon: <Zap className="post-icon" />,
-    content:
-      "Aunque el vapeo no está libre de riesgos, muchos estudios sugieren que es menos dañino que fumar cigarrillos tradicionales. El vapeo no produce alquitrán ni monóxido de carbono, dos de los componentes más dañinos del humo del tabaco. Sin embargo, aún contiene nicotina y otros químicos. Consulta siempre a un profesional de la salud antes de hacer cambios en tus hábitos.",
+    content: `Aunque el vapeo no está libre de riesgos, muchos estudios sugieren que es menos dañino que fumar cigarrillos tradicionales.
+El vapeo no produce alquitrán ni monóxido de carbono, dos de los componentes más dañinos del humo del tabaco.
+Sin embargo, aún contiene nicotina y otros químicos.
+Consulta siempre a un profesional de la salud antes de hacer cambios en tus hábitos.`,
   },
-]
+];
 
 const Blog = () => {
-  const [expandedPost, setExpandedPost] = useState(null)
+  const [expandedPost, setExpandedPost] = useState(null);
 
   const togglePost = (id) => {
-    setExpandedPost(expandedPost === id ? null : id)
-  }
+    setExpandedPost((prev) => (prev === id ? null : id));
+  };
 
   return (
     <div className="blog-container">
       <h1>Blog de Evil Angel</h1>
       <p className="blog-intro">
-        Explora nuestros artículos sobre vapeo, trucos y comparativas. Mantente informado y disfruta de una experiencia
-        de vapeo responsable.
+        Explora nuestros artículos sobre vapeo, trucos y comparativas. Mantente
+        informado y disfruta de una experiencia de vapeo responsable.
       </p>
       <div className="blog-posts">
         {blogPosts.map((post) => (
@@ -51,14 +60,25 @@ const Blog = () => {
             <div className="post-header" onClick={() => togglePost(post.id)}>
               {post.icon}
               <h2>{post.title}</h2>
-              <ChevronRight className={`expand-icon ${expandedPost === post.id ? "expanded" : ""}`} />
+              <ChevronRight
+                className={`expand-icon ${
+                  expandedPost === post.id ? "expanded" : ""
+                }`}
+              />
             </div>
             <p className="post-excerpt">{post.excerpt}</p>
-            {expandedPost === post.id && (
-              <div className="post-content">
-                <p>{post.content}</p>
-              </div>
-            )}
+            <motion.div
+              className="post-content"
+              initial={false}
+              animate={{ height: expandedPost === post.id ? "auto" : 0 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              style={{ overflow: "hidden", opacity: expandedPost === post.id ? 1 : 0 }}
+            >
+              {post.content.split("\n").map((line, index) => (
+                <p key={index}>{line}</p>
+              ))}
+            </motion.div>
           </div>
         ))}
       </div>
@@ -69,11 +89,11 @@ const Blog = () => {
           padding: 5rem 2rem;
           background-color: #111;
           color: #ffffff;
-          font-family: 'Arial', sans-serif;
+          font-family: "Arial", sans-serif;
         }
 
         h1 {
-          color: #3DE0FC;
+          color: #3de0fc;
           text-align: center;
           margin-bottom: 1rem;
         }
@@ -81,7 +101,7 @@ const Blog = () => {
         .blog-intro {
           text-align: center;
           margin-bottom: 2rem;
-          color:#133C6A;
+          color: #133c6a;
         }
 
         .blog-posts {
@@ -146,8 +166,7 @@ const Blog = () => {
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Blog
-
+export default Blog;

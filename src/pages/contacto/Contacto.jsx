@@ -1,10 +1,34 @@
+import { useState } from "react"
 import { Phone, Clock, Truck, MapPin, Instagram } from "lucide-react"
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  })
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Aquí iría la lógica para manejar el envío del formulario
-    console.log("Formulario enviado")
+
+    const { name, email, phone, message } = formData
+
+    // Número de WhatsApp donde se enviará el mensaje
+    const phoneNumber = "3516655470"
+
+    // Construcción del mensaje
+    const whatsappMessage = `Hola, me llamo ${name} . Mi Email es : ${email} . Mi numero de teléfono es : ${phone || "No especificado"}.%0A --> ${message}`
+
+    // Enlace de WhatsApp
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`
+
+    // Redirigir a WhatsApp
+    window.open(whatsappURL, "_blank")
   }
 
   return (
@@ -32,14 +56,42 @@ const Contact = () => {
           <span>@Evil_Angel.ok</span>
         </a>
       </div>
+
       <form onSubmit={handleSubmit} className="contact-form">
         <h2>Formulario de Contacto</h2>
-        <input type="text" name="name" placeholder="Nombre" required />
-        <input type="email" name="email" placeholder="Email" required />
-        <input type="tel" name="phone" placeholder="Teléfono" />
-        <textarea name="message" placeholder="Mensaje" required></textarea>
-        <button type="submit">Enviar</button>
+        <input
+          type="text"
+          name="name"
+          placeholder="Nombre"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Teléfono"
+          value={formData.phone}
+          onChange={handleChange}
+        />
+        <textarea
+          name="message"
+          placeholder="Mensaje"
+          value={formData.message}
+          onChange={handleChange}
+          required
+        ></textarea>
+        <button type="submit">Enviar por WhatsApp</button>
       </form>
+
       <style jsx>{`
         .contact-container {
           max-width: 800px;
@@ -134,4 +186,3 @@ const Contact = () => {
 }
 
 export default Contact
-

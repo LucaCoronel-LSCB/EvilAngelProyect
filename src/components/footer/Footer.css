@@ -6,7 +6,7 @@
   font-family: "Arial", sans-serif;
 }
 
-.container {
+.contain {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
@@ -15,7 +15,7 @@
   align-items: center;
 }
 
-.container-ul{
+.contain-ul{
   list-style: none;
   padding: 5px;
   margin: 0;
@@ -59,7 +59,7 @@
 
 }
 
-.contactItem {
+.contactIt {
   display: flex;
   align-items: center;
   color: #ffffff;
@@ -100,10 +100,10 @@
   .footer-text {
     display: none;
   }
-  .container {
+  .contain {
   justify-content: center;
   }
-  .container-ul{
+  .contain-ul{
     padding: 20px;}
   .branding{
   display: none;}

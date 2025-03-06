@@ -1,10 +1,10 @@
 import React from "react";
-//IMG
-//import logo from "../../assets/banerEvil.png";
+
 //CSS
 import "./Inicio.css"
 //componentes
 import {AutoSliderBanner} from "../../components/AutoSliderBanner/AutoSliderBanner";
+import InicioGrid from "../../components/InicioGrid/InicioGrid";
 const inicio = () => {
   return (
     <div>
@@ -13,6 +13,9 @@ const inicio = () => {
       </div> */}
       <div>
         <AutoSliderBanner />
+      </div>
+      <div>
+        <InicioGrid />
       </div>
     </div>
   );
