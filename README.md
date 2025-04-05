@@ -34,4 +34,4 @@ Si deseas probar el proyecto en tu máquina local o hacer una contribución, sig
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/evil-angel.git
+   git clone https://github.com/LucaCoronel-LSCB/EvilAngelProyect.git

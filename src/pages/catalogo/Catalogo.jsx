@@ -8,9 +8,8 @@ import { Link } from "react-router-dom";
 
 const Catalogo = () => {
   const { vapersData, loading } = useContext(VapersContext);
-  const [filtro, setFiltro] = useState(null); // Estado para filtrar por modelo
+  const [filtro, setFiltro] = useState(null);
 
-  // Filtrar los vapers según el modelo seleccionado
   const vapersFiltrados = filtro
     ? vapersData.filter((vaper) => vaper.marca === filtro)
     : vapersData;
@@ -34,9 +33,13 @@ const Catalogo = () => {
           <div className="grid-vapers">
             {vapersFiltrados.length > 0 ? (
               vapersFiltrados.map((vaper) => (
-                <Link key={vaper.id} to={`/DetailPage/${vaper.id}`}>
-                  <CardProduct vapersData={vaper} />
-                </Link>
+                vaper.stock > 0 ? (
+                  <Link key={vaper.id} to={`/DetailPage/${vaper.id}`}>
+                    <CardProduct vapersData={vaper} />
+                  </Link>
+                ) : (
+                  <CardProduct key={vaper.id} vapersData={vaper} />
+                )
               ))
             ) : (
               <p>No hay productos disponibles para esta categoría.</p>

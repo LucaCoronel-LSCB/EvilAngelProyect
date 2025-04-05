@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const CardProduct = ({ vapersData }) => {
   return (
     <StyledWrapper>
-      <div className="card">
+      <div className={`card ${vapersData.stock === 0 ? 'sin-stock' : 'con-stock'}`}>
         <img className="img" src={vapersData.img} alt={vapersData.marca} />
         <div className="textBox">
           <p className="text head">{vapersData.marca} {vapersData.modelo}</p>
@@ -20,7 +20,6 @@ const StyledWrapper = styled.div`
   .card {
     width: 200px;
     height: 300px;
-    background: #1a1a1a;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
@@ -31,6 +30,18 @@ const StyledWrapper = styled.div`
     position: relative;
     overflow: hidden;
     cursor: pointer;
+  }
+
+  /* Cuando no hay stock */
+  .sin-stock {
+    background: #555;
+    filter: grayscale(100%);
+    cursor: not-allowed;
+  }
+
+  /* Cuando hay stock */
+  .con-stock {
+    background: #1a1a1a;
   }
 
   .img {
@@ -77,11 +88,12 @@ const StyledWrapper = styled.div`
     color: lightgray;
   }
 
-  .card:hover > .img {
+  /* Efecto Hover solo cuando hay stock */
+  .con-stock:hover > .img {
     transform: scale(1.1);
   }
 
-  .card:hover {
+  .con-stock:hover {
     transform: scale(1.05) rotate(-2deg);
   }
 `;
