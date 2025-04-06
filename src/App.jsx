@@ -14,7 +14,7 @@ import Inicio from "./pages/inicio/Inicio";
 import Catalogo from "./pages/catalogo/Catalogo";
 import AcercaDe from "./pages/acercaDe/AcercaDe";
 import Contacto from "./pages/contacto/Contacto";
-import Blog from "./pages/Blog/Blog";
+import Blog from "./pages/blog/Blog";
 import DetailPage from "./pages/DetailPage/DetailPage";
 import Carrito from "./pages/carrito/Carrito";
 // COMPONENTS
