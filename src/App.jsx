@@ -19,7 +19,7 @@ import DetailPage from "./pages/DetailPage/DetailPage";
 import Carrito from "./pages/carrito/Carrito";
 // COMPONENTS
 import Footer from "./components/footer/Footer";
-import NavBar2 from "./components/navbar2/NavBar2";
+import NavBar2 from "./components/navBar2/NavBar2";
 
 function App() {
   return (
