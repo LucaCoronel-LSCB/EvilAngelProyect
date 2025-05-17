@@ -1,18 +1,17 @@
-import { useState } from "react";
-import { ShoppingCart, Trash2, Send, AlertCircle, Plus, Minus } from "lucide-react";
-//context
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";  
+import { useContext, useState } from "react";
+import { ShoppingCart, Trash2, Send, AlertCircle } from "lucide-react";
+import { CartContext } from "../../context/CartContext";
 
 const Carrito = () => {
-  const { cart, clearCart,deleteProduct} = useContext(CartContext);
-  
+  const { cart, clearCart, deleteProduct } = useContext(CartContext);
+
   const calculateTotal = () => {
     return cart.reduce((total, item) => total + item.totalPrice, 0);
   };
+
   const calculateProductos = () => {
     return cart.reduce((total, item) => total + item.cantidad, 0);
-  }
+  };
 
   const generateWhatsAppLink = () => {
     if (cart.length === 0) return "#";
@@ -50,15 +49,11 @@ const Carrito = () => {
                   </div>
                   <div className="itemDetails">
                     <h3>{item.marca}</h3>
-                    <p>Cantidad : {item.cantidad} </p>
+                    <p>Cantidad : {item.cantidad}</p>
                     <p>Precio Total : <span className="price">${item.totalPrice}</span></p>
-                    <div className="quantityControl">
-                      <button></button>
-                      <button></button>
-                    </div>
                   </div>
                   <button onClick={() => deleteProduct(item.id)} className="deleteButton">
-                    <Trash2 size={16} />        
+                    <Trash2 size={16} />
                   </button>
                 </div>
               ))}
@@ -75,7 +70,12 @@ const Carrito = () => {
                   <Trash2 className="icon" />
                   Vaciar carrito
                 </button>
-                <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="buyButton">
+                <a
+                  href={generateWhatsAppLink()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="buyButton"
+                >
                   <Send className="icon" />
                   Finalizar compra por WhatsApp
                 </a>
@@ -117,6 +117,7 @@ const Carrito = () => {
           gap: 0.5rem;
           margin: 0;
         }
+
         .cartHeader p {
           color: #e977f5;
           font-weight: bold;
@@ -147,6 +148,7 @@ const Carrito = () => {
           padding: 1rem;
           border-radius: 15px;
           align-items: center;
+          flex-wrap: wrap;
         }
 
         .itemImage img {
@@ -207,19 +209,26 @@ const Carrito = () => {
 
         .cartActions {
           display: flex;
+          flex-wrap: wrap;
           gap: 1rem;
+          justify-content: center;
         }
 
-        .clearButton, .buyButton {
+        .clearButton,
+        .buyButton {
           display: flex;
           align-items: center;
+          justify-content: center;
           gap: 0.5rem;
-          padding: 1rem 2rem;
+          padding: 0.8rem 1.5rem;
           border-radius: 10px;
           font-size: 1rem;
           font-weight: bold;
           cursor: pointer;
           transition: all 0.3s ease;
+          min-width: 160px;
+          flex: 1 1 200px;
+          max-width: 100%;
         }
 
         .clearButton {
@@ -230,13 +239,25 @@ const Carrito = () => {
         .buyButton {
           background: #e977f5;
           color: white;
-          flex: 1;
           text-decoration: none;
           text-align: center;
         }
 
         .buyButton:hover {
           transform: translateY(-2px);
+        }
+
+        .icon {
+          width: 20px;
+          height: 20px;
+        }
+
+        @media (max-width: 600px) {
+          .cartHeader {
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+          }
         }
       `}</style>
     </div>

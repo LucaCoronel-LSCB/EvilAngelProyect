@@ -17,12 +17,13 @@ const Catalogo = () => {
   return (
     <div className="catalogo">
       <div className="catalogo-header">
-        <ButtonC label="Todos" onClick={() => setFiltro(null)} />
-        <ButtonC label="Geek Bar" onClick={() => setFiltro("Geek Bar")} />
-        <ButtonC label="Ignite" onClick={() => setFiltro("Ignite")} />
-        <ButtonC label="El Bar" onClick={() => setFiltro("El Bar")} />
-        <ButtonC label="The Black Sheep" onClick={() => setFiltro("The Black Sheep")} />
+        <ButtonC className="btn-catalogo todos" label="Todos" onClick={() => setFiltro(null)} />
+        <ButtonC className="btn-catalogo geekbar" label="Geek Bar" onClick={() => setFiltro("Geek Bar")} />
+        <ButtonC className="btn-catalogo ignite" label="Ignite" onClick={() => setFiltro("Ignite")} />
+        <ButtonC className="btn-catalogo elbar" label="El Bar" onClick={() => setFiltro("El Bar")} />
+        <ButtonC className="btn-catalogo tbs" label="The Black Sheep" onClick={() => setFiltro("The Black Sheep")} />
       </div>
+
 
       <div className="catalogo-products">
         {loading ? (

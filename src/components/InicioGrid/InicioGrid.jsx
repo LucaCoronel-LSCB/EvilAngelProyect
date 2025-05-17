@@ -59,7 +59,9 @@ export default function ResponsiveGrid() {
 
         {/* Grid Item 6 */}
         <div className="grid-item-inicio item-inicio">
+
           <h2>Ventas Mayoristas</h2>
+          
           <p>
             Potenciá tu negocio con Evil Angel y accedé a precios exclusivos por
             cantidad.
@@ -118,7 +120,12 @@ export default function ResponsiveGrid() {
         .item-inicio{
           width: 20rem;
         }
-        
+        .contenedor-inicio-h2 {
+          display: flex;
+          flex-direction: column;
+          justify-content: center; /* Centra verticalmente */
+          height: 300px; /* Ajustá según tus necesidades */
+        }
         .grid-item-inicio h2 {
           margin-bottom: 2rem; /* Ajusta el valor según el espacio que desees */
           font-size: 1.5rem;

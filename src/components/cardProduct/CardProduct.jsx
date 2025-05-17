@@ -23,8 +23,8 @@ const StyledWrapper = styled.div`
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
+    justify-content: center; /* centra vertical */
+    align-items: center;     /* centra horizontal */
     color: white;
     transition: 0.3s ease-in-out;
     position: relative;

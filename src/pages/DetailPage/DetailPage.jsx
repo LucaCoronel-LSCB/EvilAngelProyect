@@ -148,7 +148,7 @@ const DetailPage = () => {
         .product-image {
           width: 100%;
           height: 100%;
-          object-fit: cover;
+          object-fit: contain; /* 👈 esto hace que se vea completa */
           transition: transform 0.3s ease;
         }
 

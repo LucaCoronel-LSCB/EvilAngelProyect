@@ -10,7 +10,6 @@ const NavBar2 = () => {
       <div className="navbar-logo">
         <h1>Evil Angel</h1>
       </div>
-
       {/* Menú en pantallas grandes */}
       <div className={`navbar-links ${menuOpen ? "open" : ""}`}>
         <Link to="/" onClick={() => setMenuOpen(false)}>
